@@ -1,3 +1,11 @@
+# Variable - > is a named refernce to a value stored in memory , which allows access and modification of data during program execution.
+
+# Variable are named containers to hold data values.
+
+# In Python , values are not stored in variables directly , instead they store reference to taht object .
+
+# In Python a variable is created when we assign a value to it .
+
 age = 23 #integer
 name = "Shourya" #String
 cgpa = 8.9 #float
