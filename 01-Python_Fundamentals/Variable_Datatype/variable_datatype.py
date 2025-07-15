@@ -17,7 +17,7 @@ cgpa = 8.9 #float
 # Float(float) - Decimal Number ( eg -  3.14,2.5,-0.0032 )
 # String(str) - text data enclosed in quotes ( eg - "Hello" , 'Python')
 # Boolean(bool) - Represent true or false
-# Complex(complex) -> Represent complex number in form of (a+bj) where a is real number and b is imagin
+# Complex(complex) -> Represent complex number in form of (a+bj) where a is real number and b is imaginary number.
 
 
 age=3
