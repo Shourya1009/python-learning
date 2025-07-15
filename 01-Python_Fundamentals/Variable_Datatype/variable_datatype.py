@@ -1,8 +1,8 @@
-# Variable - > is a named refernce to a value stored in memory , which allows access and modification of data during program execution.
+# Variable - > is a named reference to a value stored in memory , allowing data to be accessed and modified during program execution.
 
 # Variable are named containers to hold data values.
 
-# In Python , values are not stored in variables directly , instead they store reference to taht object .
+# Python does not store values directly in variables like in some other languages; instead, it stores references (or pointers) to objects.
 
 # In Python a variable is created when we assign a value to it .
 
@@ -17,6 +17,7 @@ cgpa = 8.9 #float
 # Float(float) - Decimal Number ( eg -  3.14,2.5,-0.0032 )
 # String(str) - text data enclosed in quotes ( eg - "Hello" , 'Python')
 # Boolean(bool) - Represent true or false
+# Complex(complex) -> Represent complex number in form of (a+bj) where a is real number and b is imagin
 
 
 age=3
@@ -40,3 +41,6 @@ print(type(is_completed))   #bool
 work_done=False
 print(work_done)
 print(type(work_done))
+
+complex_datatype = 6+7j
+print("Data type : ",type(complex_datatype))
