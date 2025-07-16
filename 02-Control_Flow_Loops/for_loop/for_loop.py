@@ -15,7 +15,7 @@
 
 for i in range(1,11):
     print(i)
-
+ 
 
 
 # Print table of 5 using for loop 

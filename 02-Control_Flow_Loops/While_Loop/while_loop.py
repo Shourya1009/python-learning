@@ -9,6 +9,12 @@ while i<6:
 
 
 # The while loop requires relevant variables to be ready, in this example we need to define an indexing variable, i, which we set to 1.
+i = 1
+while i < 6:
+  print(i)
+  i += 1
+  
+
 
 print("Count : ")
 count=0
