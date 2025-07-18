@@ -26,5 +26,15 @@ while count<5:
 
 # Infinite Loop in Python :
 
-while True:
-    print("It will run till infinity")
+# while True:
+#     print("It will run till infinity")
+
+
+# While loop with continue statement
+
+s=5
+while(s<10):
+   s+=1
+   if s==8:
+      continue
+   print(s)
