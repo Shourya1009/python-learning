@@ -4,7 +4,7 @@
 # If you try to modify a string (like changing a character or updating part of it), Python will instead create a new string rather than changing the original one.
 
 
-name ="Harry" 
+name ="Shourya" 
 # name[0]="R"   # ❌ This will raise an error: 'str' object does not support item assignment
 
 
@@ -35,7 +35,7 @@ print(course[2:-3])    # -3-1=-4 , goes from 2 to -4
 
 # String Methods :-
 
-# 1. upper() - Converts all lowercase characters in a string into uppercase
+# 1. upper() - Converts all lowercase characters in a string to uppercase
 
 s="Hello WoRld"
 print(len(s))
@@ -74,9 +74,9 @@ print(s.swapcase())
 
 
 
-# 6. strip method - Used to remove whitespaces from a string 
-# i) lstrip - remove all the whitespace from the left side of the string
-# ii) rstrip - remove all the whitespace from the right side of the string
+# 6. strip() method - Used to remove whitespaces from a string 
+# i) lstrip() - remove all the whitespace from the left side of the string
+# ii) rstrip() - remove all the whitespace from the right side of the string
 
 
 print("Strip Methods : -")
