@@ -90,15 +90,21 @@ print(text.rstrip()) # Output: "  hello world"
 #7. Find and Replace :-
 
 # find(word or string to be find)  - return index of the first character of the word or string
-# replace("original word" , "new word") - return string with the replaced word
+# replace("original word" , "new word","count") - return string with the replaced word
 
 print("Find and Replace Method :")
 txt="Python is fun"
 print(txt.find("fun"))
 print("Original string : ",txt)
 print("Replaced String : ",txt.replace("fun","awesome"))
+replaced_string = txt.replace("Python","JavaScript")
+print(f"New replaced string is : {replaced_string}")
 
-
+# count -> Maximum number of replacement to make. 
+count_string = "apple apple apple"
+print(count_string.replace("apple","orange",2))
+print(count_string.replace("apple","orange",1))
+print(count_string.replace("apple","orange",3))
 
 
 
