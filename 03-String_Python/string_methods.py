@@ -283,7 +283,7 @@ s = "28212"
 print(s.isdigit())
 
 # contains alphabets and spaces
-s = "Mo3 nicaG el l22er"
+s = "Mo3 nicaG el l22er"    
 print(s.isdigit())
 
 
@@ -305,3 +305,7 @@ print(sol.isalnum())
 # Return true if string is a whitespace string , false otherwise 
 
 print(sol.isspace())
+print(" ".isspace())
+print(" abc ".isspace())
+print("".isspace())
+print("\n\t".isspace())
