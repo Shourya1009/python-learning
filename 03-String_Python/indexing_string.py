@@ -11,3 +11,6 @@ print(name[1])  # h
 
 print(name[-1]) # a    -1+7=6 at index 6 we have a 
 print(name[-3]) # r   -3+7=4 at index 4 we have r 
+print(name[0:5:1])
+print(name[::-1])
+print(name[::-3])
