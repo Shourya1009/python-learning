@@ -46,3 +46,38 @@ def greet():
 # After creating a function in Python we can call it by using the name of the functions Python followed by parenthesis containing parameters of that particular function. Below is the example for calling def function Python.
 
 greet();
+
+
+
+"""
+Python Function Arguments:-
+Arguments are inputs given to the function.
+
+"""
+
+def greet(name):
+    print("Hello", name)
+
+# pass argument
+greet("Shourya")
+
+
+"""
+Here, we passed 'Shourya' as an argument to the greet() function.
+
+We can pass different arguments in each call, making the function re-usable and dynamic.
+"""
+
+greet('Rishabh')
+
+
+
+# Function to Add Two Numbers:-
+
+# function with two arguments
+def add_numbers(num1, num2):
+    sum = num1 + num2
+    print("Sum: ", sum)
+
+# function call 
+add_numbers(5, 4)
