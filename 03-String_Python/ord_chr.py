@@ -48,3 +48,15 @@ print(chr(98))
 
 print(chr(65))
 # Output : A
+
+print(chr(89))
+# Ouput - 89
+
+print(chr(58))
+# Output - :
+
+print(chr(165))
+# Output - ¥
+
+print(chr(198))
+# Output - Æ
