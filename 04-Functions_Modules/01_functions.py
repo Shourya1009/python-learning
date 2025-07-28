@@ -43,41 +43,64 @@ ii) User-defined function: We can create our own functions based on our requirem
 def greet():
     print("Hello World")
 
-# After creating a function in Python we can call it by using the name of the functions Python followed by parenthesis containing parameters of that particular function. Below is the example for calling def function Python.
+# After creating a function in Python we can call it by using the name of the functions , followed by parenthesis containing arguments of that particular function. Below is the example for calling a function.
 
 greet();
 
 
 
 """
-Python Function Arguments:-
-Arguments are inputs given to the function.
+ What is a Parameter in Python ?
+-> A parameter is a variable used in a function definition to receive a value
 
+What is an Argument in Python ?
+-> They are the actual values passed when the function is called
 """
+def greet(name):           # name is a parameter
+    print("Hello",name)
 
-def greet(name):
-    print("Hello", name)
+greet("Shourya")           # "Shourya" is an Argument
 
-# pass argument
-greet("Shourya")
-
-
-"""
-Here, we passed 'Shourya' as an argument to the greet() function.
-
-We can pass different arguments in each call, making the function re-usable and dynamic.
-"""
-
-greet('Rishabh')
 
 
 
 # Function to Add Two Numbers:-
 
-# function with two arguments
-def add_numbers(num1, num2):
-    sum = num1 + num2
-    print("Sum: ", sum)
+def add_numbers(num1, num2):    # ← num1 and num2 are parameters
+    addition = num1+num2
+    return addition
 
+# This is Outside Function:- 
 # function call 
-add_numbers(5, 4)
+result = add_numbers(5, 4)      # ← 5 and 4 are arguments
+print(f"Sum of two numbers are {result}")
+
+
+
+# return Statement in Python : - 
+# -> In Python, we use the return statement to return a value from a function to the caller. It also ends the function’s execution immediately. 
+
+# function definition
+def find_square(num):
+    result = num * num
+    return result
+
+# function call
+square = find_square(3)
+
+print(f"Square : {square}")
+
+# Note : -  Any code after return is not executed.
+
+
+
+"""
+The pass Statement in Python :- 
+
+The pass statement serves as a placeholder for future code, preventing errors from empty code blocks.
+"""
+def future_function():
+    pass
+
+# this will execute without any action or error
+future_function()  
