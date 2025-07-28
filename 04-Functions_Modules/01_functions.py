@@ -104,3 +104,4 @@ def future_function():
 
 # this will execute without any action or error
 future_function()  
+print("I am Printing after future function which does nothing")
