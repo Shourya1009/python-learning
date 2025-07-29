@@ -105,3 +105,40 @@ def future_function():
 # this will execute without any action or error
 future_function()  
 print("I am Printing after future function which does nothing")
+
+
+"""
+Python Library Functions :-
+
+Python provides some built-in functions that can be directly used in our program.
+
+Some Python library functions are:-
+1] print() - prints the string inside the quotation marks
+2] sqrt() - returns the square root of a number
+3] pow() - returns the power of a number
+4] abs() - returns the absolute value of the given number. If the number is a complex number, abs() returns its magnitude.
+
+These library functions are defined inside the module. And to use them, we must include the module inside our program.
+For example, sqrt() is defined inside the math module.
+"""
+import math
+
+# sqrt computes the square root
+square_root = math.sqrt(16)
+
+print("Square Root of 16 is",square_root)
+
+# pow() comptes the power
+power = pow(4, 3)
+
+print("4 to the power 3 is",power)
+
+
+# abs() function : -
+
+num = -17
+
+absolute_number = abs(num)
+print(absolute_number)
+
+# Output: 17
