@@ -8,8 +8,9 @@ def add(a, b):
 
    result = a + b
    return result
-
 # Here, we have defined a function add() inside a module named example. The function takes in two numbers and returns their sum.
+
+
 
 
 # Import Python Standard Library Modules :-
@@ -19,6 +20,8 @@ The Python standard library contains well over 200 modules. We can import a modu
 
 Suppose we want to get the value of pi, first we import the math module and use math.pi. For example,
 """
+
+
 
 # import standard math module 
 import math
