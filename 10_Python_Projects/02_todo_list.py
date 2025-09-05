@@ -44,8 +44,7 @@ def main():
         elif choice == '3':
             remove_task()
         elif choice == '4':
-            print("👋git add .
-                   Exiting To-Do List App. Goodbye!")
+            print("👋 Exiting To-Do List App. Goodbye!")
             break
         else:
             print("⚠️ Invalid choice, try again!")
