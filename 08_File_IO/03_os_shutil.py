@@ -3,71 +3,85 @@
 import os
 import shutil
 
-# ---------- OS MODULE ----------
-print("---- OS MODULE DEMO ----")
 
-# Get current working directory
-print("Current Directory:", os.getcwd())
+def os_demo():
+    print("---- OS MODULE DEMO ----")
 
-# Create a new folder if it doesn't exist
-if not os.path.exists("test_folder"):
-    os.mkdir("test_folder")
-    print("Created folder: test_folder")
+    # Current working directory
+    cwd = os.getcwd()
+    print(f"Current Directory: {cwd}")
 
-# Create nested directories
-if not os.path.exists("parent/child"):
-    os.makedirs("parent/child")
-    print("Created nested directories: parent/child")
+    # Create folder safely
+    os.makedirs("test_folder", exist_ok=True)
+    print("Ensured folder exists: test_folder")
 
-# List all files and folders in current directory
-print("List of files in current directory:", os.listdir())
+    # Create nested directories safely
+    os.makedirs("parent/child", exist_ok=True)
+    print("Ensured nested directories exist: parent/child")
 
-# Check if a file exists
-print("Does sample.txt exist?", os.path.exists("sample.txt"))
+    # List directory contents
+    print("Items in current directory:")
+    for item in os.listdir():
+        print(" -", item)
 
-# Path join (OS independent)
-print("Joined Path:", os.path.join("folder", "file.txt"))
+    # Check file existence
+    print("Does sample.txt exist?", os.path.exists("sample.txt"))
 
-
-# ---------- FILE CREATION ----------
-print("\n---- FILE CREATION ----")
-with open("sample.txt", "w") as f:
-    f.write("Hello from sample file.")
-
-print("Created 'sample.txt' with some text.")
+    # Cross-platform path join
+    joined_path = os.path.join("folder", "file.txt")
+    print("Joined Path:", joined_path)
 
 
-# ---------- SHUTIL MODULE ----------
-print("\n---- SHUTIL MODULE DEMO ----")
+def file_creation():
+    print("\n---- FILE CREATION ----")
 
-# Copy file
-shutil.copy("sample.txt", "sample_copy.txt")
-print("Copied 'sample.txt' → 'sample_copy.txt'")
+    with open("sample.txt", "w") as f:
+        f.write("Hello from sample file.\nThis file is used for OS & shutil demo.")
 
-# Copy with metadata
-shutil.copy2("sample.txt", "sample_copy_meta.txt")
-print("Copied 'sample.txt' with metadata → 'sample_copy_meta.txt'")
+    size = os.path.getsize("sample.txt")
+    print(f"Created 'sample.txt' ({size} bytes)")
 
-# Move file into test_folder
-shutil.move("sample_copy.txt", "test_folder/sample_moved.txt")
-print("Moved 'sample_copy.txt' → test_folder/")
 
-# Show contents of test_folder
-print("Files inside test_folder:", os.listdir("test_folder"))
+def shutil_demo():
+    print("\n---- SHUTIL MODULE DEMO ----")
 
-# Disk usage info
-total, used, free = shutil.disk_usage(".")
-print("Disk Usage → Total:", total, "Used:", used, "Free:", free)
+    # Copy file
+    shutil.copy("sample.txt", "sample_copy.txt")
+    print("Copied → sample_copy.txt")
 
-# ---------- CLEANUP DEMO ----------
-print("\n---- CLEANUP DEMO ----")
+    # Copy with metadata
+    shutil.copy2("sample.txt", "sample_copy_meta.txt")
+    print("Copied with metadata → sample_copy_meta.txt")
 
-# Delete files
-if os.path.exists("sample_copy_meta.txt"):
-    os.remove("sample_copy_meta.txt")
-    print("Deleted 'sample_copy_meta.txt'")
+    # Move file
+    shutil.move("sample_copy.txt", os.path.join("test_folder", "sample_moved.txt"))
+    print("Moved sample_copy.txt → test_folder/")
 
-# Delete a whole directory (CAREFUL!)
-if os.path.exists("parent"):
-    shutil.rmtree("parent")
-    print("Deleted 'parent' folder with all subfolders")
+    # Show contents of test folder
+    print("Files inside test_folder:", os.listdir("test_folder"))
+
+    # Disk usage (convert to GB)
+    total, used, free = shutil.disk_usage(".")
+    gb = 1024 ** 3
+    print(f"Disk Usage → Total: {total/gb:.2f} GB | Used: {used/gb:.2f} GB | Free: {free/gb:.2f} GB")
+
+
+def cleanup():
+    print("\n---- CLEANUP DEMO ----")
+
+    # Delete metadata copy
+    if os.path.exists("sample_copy_meta.txt"):
+        os.remove("sample_copy_meta.txt")
+        print("Deleted sample_copy_meta.txt")
+
+    # Delete nested directory
+    if os.path.exists("parent"):
+        shutil.rmtree("parent")
+        print("Deleted parent folder and its contents")
+
+
+if __name__ == "__main__":
+    os_demo()
+    file_creation()
+    shutil_demo()
+    cleanup()
