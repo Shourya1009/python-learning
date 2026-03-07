@@ -2,62 +2,70 @@
 Constructors in Python
 ----------------------
 
-A constructor in Python is a special method used to initialize objects
-when they are created from a class.
+A constructor in Python is a special method that is automatically
+called when an object of a class is created.
 
 The most commonly used constructor is:
     __init__(self, ...)
 
 Key Points:
-- It is automatically called when an object is created.
+- It runs automatically when an object is created.
 - The first parameter is always `self`, which refers to the current object.
-- You can pass additional parameters to set initial values for attributes.
+- Additional parameters can be used to initialize object attributes.
 
 -------------------------------------------------
 Types of Constructors in Python
 -------------------------------------------------
 
-1. Default Constructor:
+1. Default Constructor
    - Takes only `self` as a parameter.
-   - Used when no initialization is needed.
+   - Used when no initial values are required.
 
-2. Parameterized Constructor:
-   - Accepts additional arguments to initialize attributes.
-
--------------------------------------------------
-Example Code
--------------------------------------------------
+2. Parameterized Constructor
+   - Takes extra parameters to initialize attributes.
 """
 
-# 1. Default Constructor
+# 1. Default Constructor Example
 class DefaultExample:
     def __init__(self):
-        print("This is a default constructor.")
+        self.message = "Object initialized using default constructor."
+        print(self.message)
 
-obj1 = DefaultExample()  # Automatically calls __init__
+# Creating object (constructor runs automatically)
+obj1 = DefaultExample()
 
 
-# 2. Parameterized Constructor
+# 2. Parameterized Constructor Example
 class Car:
     def __init__(self, brand, model):
         self.brand = brand
         self.model = model
-        print(f"Car Created: {self.brand} {self.model}")
+        print(f"Car object created -> {self.brand} {self.model}")
 
-    def display(self):
-        print(f"Brand: {self.brand}, Model: {self.model}")
+    def display_details(self):
+        print(f"Car Brand: {self.brand}")
+        print(f"Car Model: {self.model}")
+        print("----------------------")
 
+# Creating objects with parameters
 car1 = Car("Toyota", "Corolla")
 car2 = Car("Honda", "Civic")
 
-car1.display()
-car2.display()
+# Calling method to display details
+car1.display_details()
+car2.display_details()
+
 
 """
-Output:
-This is a default constructor.
-Car Created: Toyota Corolla
-Car Created: Honda Civic
-Brand: Toyota, Model: Corolla
-Brand: Honda, Model: Civic
+Expected Output:
+
+Object initialized using default constructor.
+Car object created -> Toyota Corolla
+Car object created -> Honda Civic
+Car Brand: Toyota
+Car Model: Corolla
+----------------------
+Car Brand: Honda
+Car Model: Civic
+----------------------
 """
