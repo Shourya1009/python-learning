@@ -9,17 +9,19 @@ belong to the class itself rather than to individual objects.
    - The most common type of method.
    - Takes `self` as the first argument.
    - Can access and modify instance attributes.
+   - Can also access class attributes.
 
 2. Class Method:
    - Defined using the `@classmethod` decorator.
    - Takes `cls` (class) as the first argument.
-   - Can access and modify **class attributes**, but not instance attributes.
-   - Useful for creating factory methods.
+   - Can access and modify class attributes.
+   - Cannot directly access instance attributes.
+   - Often used as factory methods (alternative constructors).
 
 3. Static Method:
    - Defined using the `@staticmethod` decorator.
-   - Does not take `self` or `cls` as the first argument.
-   - Behaves like a normal function but belongs to the class’s namespace.
+   - Does not take `self` or `cls`.
+   - Works like a normal function but belongs to the class.
    - Cannot modify class or instance attributes directly.
    - Used for utility/helper functions.
 
@@ -32,37 +34,57 @@ class Student:
     school_name = "ABC School"  # Class Attribute
 
     def __init__(self, name, age):
-        self.name = name      # Instance Attribute
+        self.name = name
         self.age = age
 
     # Instance Method
     def display(self):
-        print(f"Student Name: {self.name}, Age: {self.age}, School: {Student.school_name}")
+        print(f"Name: {self.name} | Age: {self.age} | School: {self.__class__.school_name}")
 
-    # Class Method
+    # Class Method (modify class attribute)
     @classmethod
     def change_school(cls, new_name):
         cls.school_name = new_name
 
-    # Static Method
+    # Class Method (Factory Method)
+    @classmethod
+    def from_string(cls, student_str):
+        name, age = student_str.split("-")
+        return cls(name, int(age))
+
+    # Static Method (utility function)
     @staticmethod
     def is_adult(age):
         return age >= 18
+
+    # Another Static Method
+    @staticmethod
+    def is_valid_age(age):
+        return 0 < age < 100
 
 
 # Demonstration
 s1 = Student("Shourya", 17)
 s2 = Student("Anuj", 20)
 
-# Instance Method
+# Using factory method
+s3 = Student.from_string("Riya-22")
+
+print("\n--- Initial Data ---")
 s1.display()
 s2.display()
+s3.display()
 
-# Class Method (changes class attribute for all instances)
+# Class Method usage
 Student.change_school("XYZ School")
+
+print("\n--- After Changing School ---")
 s1.display()
 s2.display()
+s3.display()
 
-# Static Method (works like a utility function)
-print("\nIs 17 adult?", Student.is_adult(17))
+# Static Methods
+print("\n--- Static Method Outputs ---")
+print("Is 17 adult?", Student.is_adult(17))
 print("Is 20 adult?", Student.is_adult(20))
+print("Is age 150 valid?", Student.is_valid_age(150))
