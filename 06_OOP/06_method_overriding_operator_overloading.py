@@ -3,53 +3,52 @@ Method Overriding and Operator Overloading in Python
 ----------------------------------------------------
 
 1. Method Overriding:
-   - Occurs when a child class provides a specific implementation
-     of a method that is already defined in its parent class.
-   - The child class method overrides the parent class method.
-   - Achieved through inheritance.
+   - Happens when a child class redefines a method of the parent class.
+   - The child class provides its own implementation.
+   - Requires inheritance.
 
 2. Operator Overloading:
-   - In Python, operators are implemented using special methods (also called dunder methods).
-   - Operator overloading allows the same operator to have different meanings depending on the objects.
-   - Example: The '+' operator adds numbers, but can also concatenate strings or be customized for objects.
+   - Python uses special (dunder) methods to define operator behavior.
+   - Allows operators to work differently for custom objects.
+   - Example: '+' can add numbers, join strings, or add objects.
 
 -------------------------------------------------
-Example Code: Method Overriding
+Example: Method Overriding
 -------------------------------------------------
 """
 
 # Parent class
 class Animal:
     def sound(self):
-        print("This animal makes a sound.")
+        print("Animals make different sounds.")
 
-# Child class overriding the method
+# Child class 1
 class Dog(Animal):
-    def sound(self):  # Overriding the parent method
-        print("The dog barks.")
+    def sound(self):  # Overriding
+        print("Dog says: Bark!")
 
+# Child class 2
 class Cat(Animal):
-    def sound(self):
-        print("The cat meows.")
+    def sound(self):  # Overriding
+        print("Cat says: Meow!")
 
 # Demonstration
-a = Animal()
-d = Dog()
-c = Cat()
+print("Method Overriding Example:\n")
 
-a.sound()  # Parent method
-d.sound()  # Overridden method
-c.sound()  # Overridden method
+animals = [Animal(), Dog(), Cat()]
+
+for obj in animals:
+    obj.sound()
 
 """
 Output:
-This animal makes a sound.
-The dog barks.
-The cat meows.
+Animals make different sounds.
+Dog says: Bark!
+Cat says: Meow!
 """
 
 # ------------------------------------------------
-# Example Code: Operator Overloading
+# Example: Operator Overloading
 # ------------------------------------------------
 
 class Point:
@@ -57,27 +56,40 @@ class Point:
         self.x = x
         self.y = y
 
-    # Overloading the + operator
+    # Overloading '+' operator
     def __add__(self, other):
         return Point(self.x + other.x, self.y + other.y)
 
-    # Overloading the str() function for readable output
+    # String representation
     def __str__(self):
-        return f"({self.x}, {self.y})"
+        return f"Point({self.x}, {self.y})"
+
+    # Optional: equality check
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+
+# Demonstration
+print("\nOperator Overloading Example:\n")
 
 p1 = Point(2, 3)
 p2 = Point(4, 5)
-p3 = p1 + p2   # Uses __add__
 
-print("\nOperator Overloading Example:")
-print("p1:", p1)
-print("p2:", p2)
+p3 = p1 + p2   # Calls __add__
+
+print("p1 =", p1)
+print("p2 =", p2)
 print("p1 + p2 =", p3)
+
+# Extra check
+print("Are p1 and p2 equal?", p1 == p2)
 
 """
 Output:
 Operator Overloading Example:
-p1: (2, 3)
-p2: (4, 5)
-p1 + p2 = (6, 8)
+
+p1 = Point(2, 3)
+p2 = Point(4, 5)
+p1 + p2 = Point(6, 8)
+Are p1 and p2 equal? False
 """
