@@ -1,57 +1,74 @@
 """
+List Methods in Python
+----------------------
 
-A list method in Python is a built-in function that belongs to the list data type and is used to perform operations on list objects.
+A list method is a built-in function associated with Python lists.
+These methods help you manipulate list data easily.
 
-Think of it like this:
-
-1] A list is a container for storing multiple items.
-
-2] List methods are special tools you can use to add, remove,       search, sort, or manipulate those items.
-
+Think of it like:
+1. A list = a container of items
+2. Methods = tools to operate on those items
 """
 
-
-# 1. append() - Add element at the end
+# Initial list
 fruits = ["apple", "banana"]
-fruits.append("cherry")
-print("append():", fruits)
+print("Original list:", fruits)
 
-# 2. insert() - Insert element at specific position
+
+# 1. append() → Adds element at the end
+fruits.append("cherry")
+print("\nappend():", fruits)
+
+
+# 2. insert() → Adds element at a specific index
 fruits.insert(1, "orange")
 print("insert():", fruits)
 
-# 3. extend() - Add elements from another iterable
+
+# 3. extend() → Adds multiple elements
 fruits.extend(["mango", "grape"])
 print("extend():", fruits)
 
-# 4. remove() - Remove first occurrence of a value
+
+# 4. remove() → Removes first matching value
 fruits.remove("banana")
 print("remove():", fruits)
 
-# 5. pop() - Remove and return element at given index (default last)
-popped_item = fruits.pop()
-print("pop():", fruits, "| Popped:", popped_item)
 
-# 6. clear() - Remove all elements
+# 5. pop() → Removes & returns element (default: last)
+popped_item = fruits.pop()
+print("pop():", fruits, "| Popped item:", popped_item)
+
+
+# 6. clear() → Removes all elements
 temp_list = [1, 2, 3]
 temp_list.clear()
-print("clear():", temp_list)
+print("\nclear():", temp_list)
 
-# 7. index() - Get index of first occurrence
+
+# New list for numeric operations
 numbers = [10, 20, 30, 20]
+print("\nNumbers list:", numbers)
+
+
+# 7. index() → Returns index of first occurrence
 print("index():", numbers.index(20))
 
-# 8. count() - Count occurrences of a value
+
+# 8. count() → Counts occurrences
 print("count():", numbers.count(20))
 
-# 9. sort() - Sort list in ascending order
+
+# 9. sort() → Sorts list (ascending by default)
 numbers.sort()
 print("sort():", numbers)
 
-# 10. reverse() - Reverse the list
+
+# 10. reverse() → Reverses the list
 numbers.reverse()
 print("reverse():", numbers)
 
-# 11. copy() - Shallow copy of a list
+
+# 11. copy() → Creates a shallow copy
 numbers_copy = numbers.copy()
 print("copy():", numbers_copy)
