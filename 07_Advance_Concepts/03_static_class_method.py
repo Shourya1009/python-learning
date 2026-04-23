@@ -39,18 +39,19 @@ class Student:
 
     # Instance Method
     def display(self):
-        print(f"Name: {self.name} | Age: {self.age} | School: {self.__class__.school_name}")
+        print(f"Name: {self.name} | Age: {self.age} | School: {Student.school_name}")
 
     # Class Method (modify class attribute)
     @classmethod
     def change_school(cls, new_name):
+        print(f"\n[INFO] Changing school to: {new_name}")
         cls.school_name = new_name
 
     # Class Method (Factory Method)
     @classmethod
     def from_string(cls, student_str):
         name, age = student_str.split("-")
-        return cls(name, int(age))
+        return cls(name.strip(), int(age))
 
     # Static Method (utility function)
     @staticmethod
@@ -71,20 +72,17 @@ s2 = Student("Anuj", 20)
 s3 = Student.from_string("Riya-22")
 
 print("\n--- Initial Data ---")
-s1.display()
-s2.display()
-s3.display()
+for student in (s1, s2, s3):
+    student.display()
 
 # Class Method usage
 Student.change_school("XYZ School")
 
 print("\n--- After Changing School ---")
-s1.display()
-s2.display()
-s3.display()
+for student in (s1, s2, s3):
+    student.display()
 
 # Static Methods
 print("\n--- Static Method Outputs ---")
-print("Is 17 adult?", Student.is_adult(17))
-print("Is 20 adult?", Student.is_adult(20))
-print("Is age 150 valid?", Student.is_valid_age(150))
+for age in (17, 20, 150):
+    print(f"Age {age} -> Adult: {Student.is_adult(age)}, Valid: {Student.is_valid_age(age)}")
